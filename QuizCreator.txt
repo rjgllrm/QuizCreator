@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import (
     QApplication, QWidget, QLineEdit, QTextEdit,
     QPushButton, QVBoxLayout, QComboBox, QMessageBox
 )
+
 class Questions(QWidget):
     def __init__(self):
         super().__init__()
@@ -10,3 +11,15 @@ class Questions(QWidget):
 
     def init_ui(self):
         self.setWindowTitle("Quiz Creator")
+        self.question_input = QTextEdit()
+        self.question_input.setPlaceholderText("Enter the question here...")
+
+        self.option_inputs = []
+        for label in ['A', 'B', 'C', 'D']:
+            input_field = QLineEdit()
+            input_field.setPlaceholderText(f"Option {label}")
+            self.option_inputs.append(input_field)
+
+        self.correct_input = QComboBox()
+        self.correct_input.addItems(['A', 'B', 'C', 'D'])
+
