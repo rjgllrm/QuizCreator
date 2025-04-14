@@ -40,28 +40,34 @@ class Questions(QWidget):
         layout.addWidget(self.exit_button)
         self.setLayout(layout)
 
- def submit_question(self):
-    question = self.question_input.toPlainText().strip()
-    options = [field.text().strip() for field in self.option_inputs]
-    correct = self.correct_input.currentText()
+    def submit_question(self):
+        question = self.question_input.toPlainText().strip()
+        options = [field.text().strip() for field in self.option_inputs]
+        correct = self.correct_input.currentText()
 
-    if not question or not all(options):
-       QMessageBox.warning(self, "Missing Info", "Please fill in all fields.")
-       return
+        if not question or not all(options):
+           QMessageBox.warning(self, "Missing Info", "Please fill in all fields.")
+           return
 
-    data = (
-        f"Question: {question}\n"
-        f"a) {options[0]}\n"
-        f"b) {options[1]}\n"
-        f"c) {options[2]}\n"
-        f"d) {options[3]}\n"
-        f"Correct Answer: {correct}\n"
-        f"{'-'*40}\n"
-    )
+        data = (
+            f"Question: {question}\n"
+            f"a) {options[0]}\n"
+            f"b) {options[1]}\n"
+            f"c) {options[2]}\n"
+            f"d) {options[3]}\n"
+            f"Correct Answer: {correct}\n"
+            f"{'-'*40}\n"
+        )
 
-    with open("quiz_questions.txt", "a", encoding="utf-8") as file:
+        with open("quiz_questions.txt", "a", encoding="utf-8") as file:
         file.write(data)
 
-    QMessageBox.information(self, "Saved", "Question saved!")
-    self.clear_fields()
+        QMessageBox.information(self, "Saved", "Question saved!")
+        self.clear_fields()
+
+    def clear_fields(self):
+        self.question_input.clear()
+        for field in self.option_inputs:
+            field.clear()
+        self.correct_input.setCurrentIndex(0)
 
