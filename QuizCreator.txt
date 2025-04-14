@@ -23,3 +23,11 @@ class Questions(QWidget):
         self.correct_input = QComboBox()
         self.correct_input.addItems(['A', 'B', 'C', 'D'])
 
+        self.save_button = QPushButton("Save")
+        self.save_button.clicked.connect(self.submit_question)
+        self.save_button.setStyleSheet("background-color: #66bb6a; color: white; padding: 8px;")
+
+        self.exit_button = QPushButton("Exit")
+        self.exit_button.clicked.connect(self.close)
+        self.exit_button.setStyleSheet("background-color: #a5d6a7; padding: 6px;")
+
