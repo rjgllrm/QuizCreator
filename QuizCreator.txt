@@ -40,3 +40,12 @@ class Questions(QWidget):
         layout.addWidget(self.exit_button)
         self.setLayout(layout)
 
+ def submit_question(self):
+        question = self.question_input.toPlainText().strip()
+        options = [field.text().strip() for field in self.option_inputs]
+        correct = self.correct_input.currentText()
+
+        if not question or not all(options):
+            QMessageBox.warning(self, "Missing Info", "Please fill in all fields.")
+            return
+
