@@ -41,11 +41,21 @@ class Questions(QWidget):
         self.setLayout(layout)
 
  def submit_question(self):
-        question = self.question_input.toPlainText().strip()
-        options = [field.text().strip() for field in self.option_inputs]
-        correct = self.correct_input.currentText()
+    question = self.question_input.toPlainText().strip()
+    options = [field.text().strip() for field in self.option_inputs]
+    correct = self.correct_input.currentText()
 
-        if not question or not all(options):
-            QMessageBox.warning(self, "Missing Info", "Please fill in all fields.")
-            return
+    if not question or not all(options):
+       QMessageBox.warning(self, "Missing Info", "Please fill in all fields.")
+       return
+
+    data = (
+        f"Question: {question}\n"
+        f"a) {options[0]}\n"
+        f"b) {options[1]}\n"
+        f"c) {options[2]}\n"
+        f"d) {options[3]}\n"
+        f"Correct Answer: {correct}\n"
+        f"{'-'*40}\n"
+    )
 
