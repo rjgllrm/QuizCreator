@@ -71,3 +71,12 @@ class Questions(QWidget):
             field.clear()
         self.correct_input.setCurrentIndex(0)
 
+def main():
+    app = QApplication(sys.argv)
+    window = Questions()
+    window.resize(400, 400)
+    window.show()
+    sys.exit(app.exec_())
+
+main()
+
