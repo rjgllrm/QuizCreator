@@ -30,4 +30,13 @@ class Questions(QWidget):
         self.exit_button = QPushButton("Exit")
         self.exit_button.clicked.connect(self.close)
         self.exit_button.setStyleSheet("background-color: #a5d6a7; padding: 6px;")
+        
+        layout = QVBoxLayout()
+        layout.addWidget(self.question_input)
+        for input_field in self.option_inputs:
+            layout.addWidget(input_field)
+        layout.addWidget(self.correct_input)
+        layout.addWidget(self.save_button)
+        layout.addWidget(self.exit_button)
+        self.setLayout(layout)
 
