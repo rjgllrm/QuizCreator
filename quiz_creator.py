@@ -59,7 +59,7 @@ class Questions(QWidget):
             f"{'-'*40}\n"
         )
 
-        with open("quiz_questions.txt", "a", encoding="utf-8") as file:
+        with open("quiz_creator_questions.txt", "a", encoding="utf-8") as file:
         file.write(data)
 
         QMessageBox.information(self, "Saved", "Question saved!")
