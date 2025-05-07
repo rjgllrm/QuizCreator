@@ -174,3 +174,14 @@ class Quiz(QWidget):
 
         self.load_random_question()
 
+def main():
+    app = QApplication(sys.argv)
+    quiz = Quiz()
+    quiz.resize(850, 900)
+    quiz.show()
+    sys.exit(app.exec_())
+
+
+if __name__ == '__main__':
+    main()
+
