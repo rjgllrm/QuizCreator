@@ -56,3 +56,21 @@ class FinalDialog(QDialog):
         layout.addWidget(ok_button, alignment=Qt.AlignCenter)
 
         self.setLayout(layout)
+
+class Quiz(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Quiz Time!")
+        self.question_data = self.load_questions()
+
+        if not self.question_data:
+            QMessageBox.critical(self, "Error", "No questions found!")
+            sys.exit()
+
+        self.remaining_questions = self.question_data.copy()
+        random.shuffle(self.remaining_questions)
+
+        self.init_ui()
+
+
+
