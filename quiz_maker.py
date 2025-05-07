@@ -153,3 +153,9 @@ class Quiz(QWidget):
             self.radio_buttons[you].setText(option)
             self.radio_buttons[you].setChecked(False)
 
+    def check_answer(self):
+        selected_id = self.button_group.checkedId()
+        if selected_id == -1:
+            QMessageBox.warning(self, "Please select an answer before submitting.")
+            return
+
