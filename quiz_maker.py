@@ -124,6 +124,14 @@ class Quiz(QWidget):
             self.radio_buttons.append(rb)
             self.button_group.addButton(rb, me)
             self.layout.addWidget(rb)
+            
+        self.submit_button = QPushButton("Submit")
+        self.submit_button.setStyleSheet("background-color: #4caf50; font-size: 21px; color: white; padding: 5px;")
+        self.submit_button.clicked.connect(self.check_answer)
+        self.layout.addWidget(self.submit_button)
 
+        self.setLayout(self.layout)
+
+        self.load_random_question()
 
 
