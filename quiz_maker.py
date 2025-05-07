@@ -101,5 +101,12 @@ class Quiz(QWidget):
         except FileNotFoundError:
             return []
 
+    def init_ui(self):
+        palette = self.palette()
+        palette.setColor(QPalette.Window, QColor("#f0f8ff"))
+        self.setPalette(palette)
+
+        self.layout = QVBoxLayout()
+
 
 
