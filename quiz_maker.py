@@ -31,3 +31,11 @@ class ResultDialog(QDialog):
         layout.addWidget(ok_button, alignment=Qt.AlignCenter)
 
         self.setLayout(layout)
+        
+class FinalDialog(QDialog):
+    def __init__(self, message, gif_path, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("Quiz Completed!")
+        self.setFixedSize(500, 500)
+
+        layout = QVBoxLayout()
