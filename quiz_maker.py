@@ -159,3 +159,13 @@ class Quiz(QWidget):
             QMessageBox.warning(self, "Please select an answer before submitting.")
             return
 
+        selected_option = ['A', 'B', 'C', 'D'][selected_id]
+        correct_option = self.current_question['correct']
+
+        if selected_option == correct_option:
+            message = f"✅ Correct! The answer is {correct_option}."
+            gif_path = "correct.gif"
+        else:
+            message = f"❌ Wrong! The correct answer is {correct_option}."
+            gif_path = "wrong.gif"
+
