@@ -20,3 +20,14 @@ class ResultDialog(QDialog):
         gif_label.setMovie(movie)
         movie.start()
         layout.addWidget(gif_label, alignment=Qt.AlignCenter)
+
+        message_label = QLabel(message)
+        message_label.setAlignment(Qt.AlignCenter)
+        message_label.setStyleSheet("font-size: 21px; font-weight: bold;")
+        layout.addWidget(message_label)
+
+        ok_button = QPushButton("OK")
+        ok_button.clicked.connect(self.accept)
+        layout.addWidget(ok_button, alignment=Qt.AlignCenter)
+
+        self.setLayout(layout)
