@@ -108,5 +108,13 @@ class Quiz(QWidget):
 
         self.layout = QVBoxLayout()
 
+        self.image_label = QLabel()
+        self.image_label.setAlignment(Qt.AlignCenter)
+        self.layout.addWidget(self.image_label)
+
+        self.question_label = QLabel()
+        self.question_label.setStyleSheet("font-size: 41px; font-weight: bold; color: #4caf50;")
+        self.layout.addWidget(self.question_label)
+
 
 
