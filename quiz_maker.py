@@ -140,5 +140,16 @@ class Quiz(QWidget):
             final_dialog.exec_()
             self.close()
             return
+        self.current_question = self.remaining_questions.pop()
+        self.question_label.setText(self.current_question["question"])
 
+        pixmap = QPixmap("banner.jpg")
+        if not pixmap.isNull():
+            self.image_label.setPixmap(pixmap.scaled(900, 900, Qt.KeepAspectRatio))
+        else:
+            self.image_label.clear()
+
+        for you, option in enumerate(self.current_question["options"]):
+            self.radio_buttons[you].setText(option)
+            self.radio_buttons[you].setChecked(False)
 
