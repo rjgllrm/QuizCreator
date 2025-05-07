@@ -39,3 +39,9 @@ class FinalDialog(QDialog):
         self.setFixedSize(500, 500)
 
         layout = QVBoxLayout()
+        
+        gif_label = QLabel()
+        movie = QMovie(gif_path)
+        gif_label.setMovie(movie)
+        movie.start()
+        layout.addWidget(gif_label, alignment=Qt.AlignCenter)
