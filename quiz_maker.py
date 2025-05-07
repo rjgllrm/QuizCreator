@@ -169,3 +169,8 @@ class Quiz(QWidget):
             message = f"❌ Wrong! The correct answer is {correct_option}."
             gif_path = "wrong.gif"
 
+        dialog = ResultDialog(message, gif_path, self)
+        dialog.exec_()
+
+        self.load_random_question()
+
