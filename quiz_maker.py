@@ -116,5 +116,14 @@ class Quiz(QWidget):
         self.question_label.setStyleSheet("font-size: 41px; font-weight: bold; color: #4caf50;")
         self.layout.addWidget(self.question_label)
 
+        self.radio_buttons = []
+        self.button_group = QButtonGroup()
+        for me in range(4):
+            rb = QRadioButton()
+            rb.setStyleSheet("font-size: 21px; margin: 10px;")
+            self.radio_buttons.append(rb)
+            self.button_group.addButton(rb, me)
+            self.layout.addWidget(rb)
+
 
 
