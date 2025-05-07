@@ -134,4 +134,11 @@ class Quiz(QWidget):
 
         self.load_random_question()
 
+    def load_random_question(self):
+        if not self.remaining_questions:
+            final_dialog = FinalDialog("🎉 Quiz Finished!", "finish.gif", self)
+            final_dialog.exec_()
+            self.close()
+            return
+
 
